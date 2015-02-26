@@ -1,0 +1,28 @@
+{
+  "name": "instructor",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "skills": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "course": {
+      "type": "hasMany",
+      "model": "course"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

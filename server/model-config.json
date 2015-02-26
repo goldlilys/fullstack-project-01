@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "learning-resource": {
+    "dataSource": "db",
+    "public": true
+  },
+  "course": {
+    "dataSource": "db",
+    "public": true
+  },
+  "instructor": {
+    "dataSource": "db",
+    "public": true
+  },
+  "account": {
+    "dataSource": "db",
+    "public": true
+  },
+  "student": {
+    "dataSource": "db",
+    "public": true
+  }
+}

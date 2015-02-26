@@ -1,0 +1,27 @@
+{
+  "name": "account",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "type": "object",
+  "properties": {
+    "cust_name": {
+      "type": "string",
+      "required": true,
+      "description": "Customer's name for account"
+    },
+    "account_type": {
+      "type": "string",
+      "required": true,
+      "description": "Customer's account type"
+    }
+  },
+  "validations": [],
+  "relations": {
+      "students": {
+        "type": "hasMany",
+        "model": "student"
+      }
+    },
+  "acls": [],
+  "methods": []
+}

@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '0.10'
+services:
+- mongodb
+before_script:
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm install -g casperjs gulp
+notifications:
+  slack: startersacademy-01:wDXRSBJAGrPfu5YLzZt4i6dW
+deploy:
+  provider: heroku
+  api_key:
+    secure: H/9QFvuT+sBI+cx/tryjqFDlQFfbNGmllrEE6z5HtudBFy34B+e7G+8KoljaOz3maPkpOqIllU1zVOE4PlyOfTyWzNoymmxP0eQnnk5xIm68E8yIERuvIuJmE5mGgvD0yuZdK1KMpqLL+qz2IG4d/perEBdd3kr9f5eZVoeg8Ao=
+  app: fullstack-project-01
+  on:
+    repo: startersacademy/fullstack-project-01

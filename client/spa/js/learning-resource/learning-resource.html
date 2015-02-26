@@ -1,0 +1,58 @@
+<style type="text/css">
+</style>
+<div class="vertical-center">
+  <div class="container">
+    <div class="row">
+      <div id="form-area" class="col-xs-8 col-xs-offset-2">
+        <span id="msg" class="btn"></span>
+        <div class="div-space-read sty-title">
+          <button class="b-edit btn btn-primary">Edit</button>
+          <span><%- title %></span>
+          <div class="sty-resource-auth">
+            <span class="sty-resource"><%- resourceType %></span>
+            <span class="sty-authors">by: <span id="author-dsp"></span></span>
+          </div>
+        </div>
+        <div class="div-space-edit">
+          <div class="txt-help">Title: </div>
+          <input class="form-control" id="title" value="<%- title %>" placeholder="Title">
+        </div>
+        <div class="div-space-edit">
+          <div class="txt-help">Resource Type: </div>
+          <select id="resourceType" class="form-control">
+            <option value="document">Document</option>
+            <option value="link">Link</option>
+            <option value="presentation">Presentation</option>
+          </select>
+        </div>
+        <div class="div-space-edit">
+          <div class="txt-help">Authors: </div>
+          <input class="form-control" id="auth" value="<%- authors %>" placeholder="Authors">
+        </div>
+<!--         <div class="div-space-read">
+          <span class="sty-resource"><%- resourceType %></span>
+            <%_.each(authors, function(val){ %>
+              <div class="sty-authors"><%= val %></div>
+            <% }); %>
+        </div> -->
+        <div class="div-space-read sty-desc">
+          <span><%- description %></span>
+        </div>
+        <div class="div-space-edit">
+          <div class="txt-help">Description: </div>
+          <textarea class="form-control" id="desc" value="<%- description %>" placeholder="Description"><%- description %></textarea>
+        </div>
+        <div class="ctrl">
+          <div class="pull-left">
+            <button class="b-delete btn btn-primary">Delete</button>
+          </div>
+          <div class="pull-right">
+            <!-- <button class="b-edit btn btn-primary">Edit</button> -->
+            <button class="b-cancel btn btn-primary">Cancel</button>
+            <button class="b-update btn btn-primary">Update</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /row -->
+  </div> <!-- /container -->
+</div> <!-- /vertical-center -->
