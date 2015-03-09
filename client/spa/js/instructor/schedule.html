@@ -1,0 +1,8 @@
+<div class="courses container">
+  <h1>Courses for <%- firstName %> <%- lastName %></h1>
+  <% _.each( models, function( model ){ %>
+  <div class="course">
+    <%- model.attributes.firstName %> <%- model.attributes.lastName %>
+  </div>
+  <% }); %>
+</div>

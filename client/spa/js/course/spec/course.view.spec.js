@@ -5,12 +5,12 @@ global jasmine, describe, it, expect, beforeEach, afterEach, xdescribe, xit,
 spyOn
 */
 // Get the code you want to test
-var View = require('../instructor.view.js');
+var View = require('../course.view.js');
 var matchers = require('jasmine-jquery-matchers');
 var Backbone = require('../../vendor/index').Backbone;
 // Test suite
-console.log('test instructor.view');
-describe('Instructor view ', function(){
+console.log('test course.view');
+describe('Course view ', function(){
 
   var model;
   var view;
@@ -26,9 +26,9 @@ describe('Instructor view ', function(){
 
     // Needs to have the fields required by the template
     model = new Model({
-      firstName: 'Jeff',
-      lastName: 'Thomas',
-      skills: 'C++, Java'
+      title: 'Full Stack Dev I',
+      courseType: 'video',
+      description: 'Learn how to do single page apps'
     });
 
     view = new View({
@@ -46,7 +46,7 @@ describe('Instructor view ', function(){
     });
 
     it('sets the correct class', function(){
-      expect(view.$el).toHaveClass('instructor');
+      expect(view.$el).toHaveClass('course');
     });
   });
 
@@ -57,7 +57,7 @@ describe('Instructor view ', function(){
 
     it('produces the correct HTML ', function(){
       view.render();
-      expect(view.$('h1').html()).toEqual('Jeff Thomas');
+      expect(view.$('h1').html()).toEqual('Full Stack Dev I');
     });
   });
 
@@ -72,7 +72,7 @@ describe('Instructor view ', function(){
       view.$('.modify').trigger('click');
     });
 
-    describe('when the user enters new instructor information ', function(){
+    describe('when the user enters new course information ', function(){
 
       describe('when user clicks on the cancel button', function(){
 
@@ -87,9 +87,9 @@ describe('Instructor view ', function(){
 
       describe('when user clicks on the save button', function(){
         beforeEach(function(){
-          view.$('#firstName').val('changed firstName');
-          view.$('#lastName').val('changed lastName');
-          view.$('#skills').val('changed skills');
+          view.$('#title').val('changed title');
+          view.$('#courseType').val('changed courseType');
+          view.$('#description').val('changed description');
 
           view.$('.save').trigger('click');
         });
@@ -98,7 +98,6 @@ describe('Instructor view ', function(){
           expect(view.save).toHaveBeenCalled();
           expect(Model.prototype.save).toHaveBeenCalled();
         });
-
       });
 
     });

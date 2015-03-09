@@ -2,32 +2,25 @@
 
 var Backbone = require('../vendor/index').Backbone;
 var $ = require('../vendor/index').$;
-var Model = require('./instructor.model');
-var View = require('./instructor.view');
+var Model = require('./course.model');
+var View = require('./course.view');
 
 module.exports = Backbone.Controller.extend({
   routes: {
-    'instructors/:id': 'showInstructor',
-    'instructors/new': 'addInstructor'
+    'courses/:id': 'showCourse',
+    'courses/new': 'addCourse'
   },
   initialize: function(){
     this.options.container = this.options.container || 'body';
     this.model = new Model();
     this.view = new View({model: this.model});
   },
-  showInstructor: function(instructorId, cb){
-    this.fetchModel(instructorId, function(err){
+  showCourse: function(courseId, cb){
+    this.fetchModel(courseId, function(err){
       var view;
 
       this.view.remove();
       this.view = new View({model: this.model});
-
-      /* listen to display:courses to display this
-       * event in the view, trigger event on itself
-       */
-      this.listenTo(this.view, 'display:courses', function(data) {
-        this.trigger('display:courses', data);
-      });
 
       if (err){
         view = this.renderError();
@@ -41,7 +34,7 @@ module.exports = Backbone.Controller.extend({
 
     }.bind(this));
   },
-  addInstructor: function() {
+  addCourse: function() {
     this.model = new Model();
     this.model.isNew();
 
@@ -50,8 +43,8 @@ module.exports = Backbone.Controller.extend({
     this.view.template = this.view.editTemplate;
     this.renderView();
   },
-  fetchModel: function(instructorId, cb){
-    this.model.set({id: instructorId});
+  fetchModel: function(courseId, cb){
+    this.model.set({id: courseId});
     this.model.fetch({
       success: function(model, response, options){
         //console.log(model);
@@ -73,6 +66,6 @@ module.exports = Backbone.Controller.extend({
   },
   renderError: function(){
     return this.renderToContainer(
-      '<p>There was a problem rendering this instructor</p>');
+      '<p>There was a problem rendering this course</p>');
   }
 });

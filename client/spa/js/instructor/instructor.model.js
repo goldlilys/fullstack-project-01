@@ -24,6 +24,6 @@ module.exports = Backbone.Model.extend({
     if (!attrs.skills){
       errors.push('skills cannot be empty');
     }
-    return errors;
+    return errors.length > 0 ? errors: false;
   }
 });
